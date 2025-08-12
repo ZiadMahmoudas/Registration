@@ -1,0 +1,103 @@
+.main-content {
+  flex-grow: 1;
+  padding: 30px;
+  background-color: #fff;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.main-content h1 {
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 2em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.users-table th, .users-table td {
+  padding: 12px 95px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.users-table th {
+  background-color: #f2f2f2;
+  color: #555;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.users-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.users-table .actions button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.users-table .actions .delete-btn {
+  background-color: #e74c3c;
+}
+
+@media (min-width: 768px) {
+  .users-table {
+    border: 0;
+  }
+  .users-table tr {
+    border: 1px solid #ddd;
+    display: block;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  .users-table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    position: relative;
+    font-size: 0.9em;
+  }
+  .users-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 45%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+    color: #6c757d;
+  }
+  .users-table td.d-flex.gap-3 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: none;
+  }
+  .users-table td.d-flex.gap-3::before {
+    content: "Actions:";
+    left: 0;
+    width: 45%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+    color: #6c757d;
+  }
+}/*# sourceMappingURL=users.css.map */

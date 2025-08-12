@@ -1,0 +1,25 @@
+<table class="table table-striped table-hover table-bordered align-middle">
+  <thead class="table-primary">
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Discount</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(offer of offers;track offer.id){
+    <tr>
+      <td>{{offer.title}}</td>
+      <td>{{offer.discount * 100}}%</td>
+      <td>{{offer.endDate}}</td>
+      <td>
+        <div class="d-flex gap-3">
+            <button class="btn btn-warning" (click)="Edit(offer.id)">Edit</button>
+            <button class="btn btn-danger" (click)="Delete(offer.id)">Delete</button>
+        </div>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>

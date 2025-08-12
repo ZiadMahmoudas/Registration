@@ -1,0 +1,76 @@
+/* Custom Styles for Product Detail View */
+
+.product-detail-card {
+  overflow: hidden; /* Ensures rounded corners are applied correctly */
+}
+
+.product-main-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 450px; /* Limit image height */
+  object-fit: contain; /* Ensures image fits within its container without cropping */
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-main-image:hover {
+  transform: scale(1.03); /* Subtle zoom effect on hover */
+}
+
+.product-price {
+  color: #e44d26; /* Your preferred primary color for prices, e.g., orange */
+}
+
+.custom-add-to-cart {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2); /* Shadow for success button */
+}
+
+.custom-add-to-cart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+  .product-detail-card .row {
+    flex-direction: column; /* Stacks image and details vertically on small screens */
+  }
+.custom-add-to-cart {
+  padding: 5px 8px;
+}
+  .product-detail-card .col-md-5.rounded-start-lg {
+    border-top-left-radius: 0.5rem !important; /* Adjust rounded corners for stacking */
+    border-top-right-radius: 0.5rem !important;
+    border-bottom-left-radius: 0 !important;
+  }
+
+  .product-detail-card .col-md-7 {
+    border-bottom-left-radius: 0.5rem !important;
+    border-bottom-right-radius: 0.5rem !important;
+    border-top-right-radius: 0 !important;
+  }
+
+  .product-detail-card .p-3.p-md-4 {
+    padding: 1.5rem !important; /* Less padding on small screens */
+  }
+
+  .product-detail-card .p-4.p-md-5 {
+    padding: 1.5rem !important; /* Less padding on small screens */
+  }
+
+  .product-main-image {
+    max-height: 300px; /* Shorter image on small screens */
+  }
+
+  .display-5 {
+    font-size: 2.5rem !important; /* Adjust heading size for mobile */
+  }
+
+  .display-6 {
+    font-size: 2rem !important; /* Adjust price size for mobile */
+  }
+}

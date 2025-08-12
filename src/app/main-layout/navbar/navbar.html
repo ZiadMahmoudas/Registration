@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-2">
+  <div class="container-fluid">
+    <a class="navbar-brand py-0 me-3" routerLink="/Home" style="font-size: 1.25rem;">Your Brand</a>
+
+    <div class="d-flex align-items-center ms-auto me-3">
+    <a class="nav-link text-light p-0 nav-icon-wrapper me-3" routerLink="/WishList">
+  <i class="fas fa-heart fa-lg"></i>
+  <span class="badge rounded-pill bg-danger icon-badge">{{ wishlistCount }}</span>
+</a>
+
+      <a class="nav-link text-light p-0 nav-icon-wrapper me-3" routerLink="/Cart">
+        <i class="fa-solid fa-cart-shopping fa-lg"></i>
+        <span class="badge rounded-pill bg-danger icon-badge">{{cartCount}}</span> </a>
+
+      <div class="dropdown me-3">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-globe me-1"></i> Lang
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+          <li><button class="dropdown-item" (click)="changeLanguage('en')">English</button></li>
+          <li><button class="dropdown-item"  (click)="changeLanguage('ar')">العربية</button></li>
+          </ul>
+      </div>
+<!--
+      <button (click)="toggleTheme()" class="btn btn-outline-light btn-sm">
+        <i [class]="isDarkMode ? 'fas fa-sun' : 'fas fa-moon'"></i>
+      </button> -->
+    </div>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/Home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        </li>
+        @if(isAdmin || isStaff){
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/Dashboard" routerLinkActive="active">Dashboard</a>
+          </li>
+        }
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/Order" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Orders</a>
+        </li>
+      </ul>
+
+    <form class="d-flex" role="search" (submit)="$event.preventDefault()">
+  <input
+    [(ngModel)]="searchTerm"
+    name="search"
+    (input)="onSearchChange()"
+    class="form-control form-control-sm me-2"
+    type="search"
+    placeholder="Search"
+    aria-label="Search"
+    autocomplete="off"
+  />
+</form>
+
+<ul
+  class="list-group position-absolute w-100"
+  *ngIf="searchResults.length > 0"
+  style="left: 0; top: 100%; z-index: 1000;"
+>
+  <li
+    class="list-group-item d-flex align-items-center"
+    *ngFor="let product of searchResults"
+    (click)="goToProduct(product.id)"
+    style="cursor: pointer;"
+  >
+    <img
+      src="https://localhost:7054{{product.images}}"
+      alt="{{product.productName}}"
+      width="40"
+      height="40"
+      class="me-2 rounded"
+    />
+    <span>{{ product.productName }}</span>
+  </li>
+</ul>
+
+  @if(!isAccess){
+    <div class="d-flex gap-2 mt-2">
+     <a routerLink="signup" class="btn btn-primary" >Register</a>
+     <a routerLink="login" class="btn btn-outline-primary">LogIn</a>
+     </div>
+  }
+  @else {
+      <a (click)="logout()" class="btn btn-danger w-25 mt-2 ">Log Out</a>
+      }
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,85 @@
+<div class="container my-5 pt-3">
+
+  <div class="row mb-3">
+    <div class="col-12 text-center">
+      <h2 class="display-6 fw-bold text-primary mb-1">Order History</h2>
+      <p class="lead text-muted fs-6">Your comprehensive list of orders.</p>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-hover table-striped table-sm align-middle">
+      <thead class="table-primary text-white">
+        <tr>
+          <th scope="col" class="text-center py-2">#Order ID</th>
+          <th scope="col" class="py-2">Product Info</th>
+          <th scope="col" class="text-center py-2">Delivery Status</th>
+          <th scope="col" class="text-center py-2">Order Date</th>
+          <th scope="col" class="text-center py-2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="#Order ID" class="text-center fw-bold text-primary py-2">#ORD12345</td>
+          <td data-label="Product Info" class="d-flex align-items-center py-2">
+            <img
+              src="https://via.placeholder.com/50"
+              alt="Product Image"
+              class="rounded me-2 flex-shrink-0"
+              style="width: 50px; height: 50px; object-fit: cover;"
+            />
+            <div class="flex-grow-1">
+              <p class="mb-0 fw-bold fs-6">Product Name</p>
+              <small class="text-muted d-block text-truncate" style="max-width: 150px;">A detailed description of the product.</small>
+            </div>
+          </td>
+          <td data-label="Delivery Status" class="text-center py-2">
+            <span class="badge bg-success py-1 px-2"><i class="fas fa-truck me-1"></i> In Progress</span>
+          </td>
+          <td data-label="Order Date" class="text-center py-2">Aug 7, 2025</td>
+          <td data-label="Actions" class="text-center py-2">
+            <div class="d-grid gap-1 d-md-flex justify-content-center">
+              <button class="btn btn-success btn-sm" type="button">
+                <i class="fas fa-check-circle me-1"></i> Buy 
+              </button>
+              <button class="btn btn-outline-danger btn-sm" type="button">
+                <i class="fas fa-times-circle me-1"></i> Refuse
+              </button>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td data-label="#Order ID" class="text-center fw-bold text-primary py-2">#ORD12346</td>
+          <td data-label="Product Info" class="d-flex align-items-center py-2">
+            <img
+              src="https://via.placeholder.com/50"
+              alt="Product Image"
+              class="rounded me-2 flex-shrink-0"
+              style="width: 50px; height: 50px; object-fit: cover;"
+            />
+            <div class="flex-grow-1">
+              <p class="mb-0 fw-bold fs-6">Another Product</p>
+              <small class="text-muted d-block text-truncate" style="max-width: 150px;">Description for another product.</small>
+            </div>
+          </td>
+          <td data-label="Delivery Status" class="text-center py-2">
+            <span class="badge bg-info py-1 px-2"><i class="fas fa-box me-1"></i> Shipped</span>
+          </td>
+          <td data-label="Order Date" class="text-center py-2">Aug 5, 2025</td>
+          <td data-label="Actions" class="text-center py-2">
+            <div class="d-grid gap-1 d-md-flex justify-content-center">
+              <button class="btn btn-success btn-sm" type="button" (click)="buy()">
+                <i class="fas fa-check-circle me-1"></i> Buy 
+              </button>
+              <button class="btn btn-outline-danger btn-sm" type="button">
+                <i class="fas fa-times-circle me-1"></i> Refuse
+              </button>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

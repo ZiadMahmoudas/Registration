@@ -1,0 +1,54 @@
+<!-- @if (auth.getaccessToken()) { -->
+<footer >
+    <div style="background-color: #f8f8f8; padding: 40px 20px; border-top: 1px solid #eee; font-family: Arial, sans-serif; color: #555;">
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+
+            <div style="flex: 1; min-width: 250px;">
+                <h4 style="color: #333; margin-bottom: 15px;">About</h4>
+                <p style="font-size: 19px; line-height: 1.6;">
+                    We improve For You For Good Anything for you
+                </p>
+            </div>
+
+            <div style="flex: 1; min-width: 180px;">
+                <h4 style="color: #333; margin-bottom: 15px;">Links</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 8px;"><a [routerLink]="['/Home']" routerLinkActive="router-link-active"  style="text-decoration: none; color: #555; font-size: 14px;">Home</a></li>
+                    <li style="margin-bottom: 8px;"><a [routerLink]="['/Order']" routerLinkActive="router-link-active"  style="text-decoration: none; color: #555; font-size: 14px;">Order</a></li>
+                    <li style="margin-bottom: 8px;"><a [routerLink]="['/routePath']" routerLinkActive="router-link-active"  style="text-decoration: none; color: #555; font-size: 14px;">Contact</a></li>
+                </ul>
+            </div>
+
+            <div style="flex: 1; min-width: 220px;">
+                <h4 style="color: #333; margin-bottom: 15px;">Contact Us</h4>
+                <p style="font-size: 17px; margin-bottom: 8px;">
+                    <i class="fas fa-map-marker-alt" style="margin-right: 5px;"></i> {{"Helwan @ American Project 9"}}
+                </p>
+                <p style="font-size: 17px; margin-bottom: 8px;">
+                    <i class="fas fa-envelope" style="margin-right: 5px;"></i> {{"ziadbobo78@gmail.com"}}
+                </p>
+                <p style="font-size: 17px;">
+                    <i class="fas fa-phone-alt" style="margin-right: 5px;"></i> +02 1100133486
+                </p>
+            </div>
+
+        </div>
+
+        <hr style="border: 0; border-top: 4px solid #000; margin: 30px auto; max-width: 1200px;">
+
+        <div style="text-align: center; max-width: 1200px; margin: 0 auto;">
+            <div style="margin-bottom: 15px;">
+                <h5 style="color: #333; margin-bottom: 10px;">Payment</h5>
+                <img loading="lazy" src="/images/visa.webp" alt="Visa" style="height: 90px; margin: 0 5px;">
+                <img loading="lazy" src="/images/vodavon.webp" alt="Mastercard" style="height: 90px; margin: 0 5px;">
+                <img loading="lazy" src="/images/cash.webp" alt="Cash on Delivery" style="height: 90px; margin: 0 5px;">
+                <img loading="lazy" src="/images/paypal.webp" alt="PayPal" style="height: 90px; margin: 0 5px;">
+                </div>
+            <p style="font-size:25px; color: #777;">
+                &copy; Alone WebSite
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- } -->

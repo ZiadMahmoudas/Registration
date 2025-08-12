@@ -5,9 +5,43 @@
   <title>Registration</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="images/commerce.webp">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css" />
+
 </head>
 <body>
   <app-root></app-root>
 </body>
+<!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+ <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1529897671754051',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v19.0'
+      });
+      FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) return;
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+<script src="https://www.paypal.com/sdk/js?client-id=AaCFFECrN711fQ0GTIMCWx6CncUDOe-JzkvGo47E2nxAmCUPKrXCoYiZY3VoRCEfFXxYdf-6f2QUQBWf&currency=USD"></script>
+<script async
+  src="https://pay.google.com/gp/p/js/pay.js"
+  onload="onGooglePayLoaded()"></script>
+
 </html>

@@ -1,0 +1,196 @@
+<main>
+  <section class="hero-section">
+
+    <div class="hero-content">
+
+   <h1>Discover our latest collections today!</h1>
+
+    <p>High quality products at incredible prices to suit all tastes.</p>
+
+   <a (click)="scrollToShop()" class="btn btn-primary">Shop Now</a>
+
+    </div>
+
+<div class="carousel-container owl-theme">
+
+  <owl-carousel-o [options]="customOptions">
+
+       <ng-template carouselSlide>
+          <div class="w-100">
+
+            <img src="images/prod.webp" alt="صورة 1">
+
+          </div>
+
+
+        </ng-template>
+
+    <ng-template carouselSlide>
+
+         <div class="w-100">
+ <img src="images/prod1.webp" alt="صورة 2">
+
+        </div>
+
+   </ng-template>
+
+ <ng-template carouselSlide>
+
+      <div class="w-100">
+
+       <img src="images/prod2.webp" alt="صورة 3">
+
+      </div>
+
+          </ng-template>
+
+   <ng-template carouselSlide>
+
+     <div class="w-100">
+
+         <img src="images/prod3.webp" alt="صورة 4">
+
+        </div>
+
+     </ng-template>
+
+    <ng-template carouselSlide>
+
+      <div class="w-100">
+
+       <img src="images/prod4.webp" alt="صورة 5">
+
+   </div>
+
+       </ng-template>
+
+      <ng-template carouselSlide>
+
+  <div class="w-100">
+
+             <img src="images/prod5.webp" alt="صورة 6">
+
+         </div>
+
+        </ng-template>
+
+       <ng-template carouselSlide>
+
+          <div class="w-100">
+
+          <img src="images/prod6.webp" alt="صورة 7">
+
+             </div>
+
+           </ng-template>
+
+         </owl-carousel-o>
+
+      </div>
+
+    </section>
+<div class="container my-5" #shopSection>
+  <div class="d-flex justify-content-center mb-4">
+    <div class="btn-group d-flex flex-wrap" role="group" aria-label="Product filters">
+
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        [class.active]="activeTag === null"
+        (click)="filterByTag(null)"
+      >
+        All Products
+      </button>
+
+      <button
+        *ngFor="let tag of tags"
+        type="button"
+        class="btn btn-outline-primary"
+  [class.active]="activeTag === tag.tagId"
+(click)="filterByTag(tag.tagId)"
+      >
+        {{ tag.tagType }}
+      </button>
+
+    </div>
+  </div>
+</div>
+<section class="container my-5">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-lg-4" *ngFor="let product of visibleProducts">
+  <div class="product-card">
+    <div class="product-image">
+      <img src="https://localhost:7054{{product.images}}" [alt]="product.productName" />
+      <div *ngIf="product.offer" class="discount-badge">
+        {{ product.discount * 100 }}%
+      </div>
+      @if(!roles()){
+      <i
+        class="fas fa-heart wishlist-icon"
+        [class.text-danger]="isInWishlist(product.id ?? product.productId)"
+        (click)="toggleWishlist(product)">
+      </i>
+      }
+    </div>
+    <div class="product-info">
+      <h5 class="product-title">{{ product.productName }}</h5>
+      <p class="product-description">{{ product.productDescription | limitletter:35 }}</p>
+      @if(product.offer){
+      <div  class="d-flex gap-2">
+        <p class="product-price text-decoration-line-through">{{ product.salary }} EGP</p>
+        <p class="product-price">{{ product.priceAfterDiscount }} EGP</p>
+      </div>
+      }
+      @else{
+        <p class="product-price">{{ product.priceAfterDiscount }} EGP</p>
+      }
+
+      <p class="product-stock">Stock: {{ product.stock }}</p>
+      <p class="product-brand">Brand: {{ product.brand }}</p>
+
+      <div class="product-actions">
+        <button *ngIf="roles()" class="btn btn-danger" (click)="RemoveItem(product.id ?? product.productId)">Remove</button>
+        <button *ngIf="roles()" class="btn btn-warning" (click)="EditItem(product.id ?? product.productId)">Edit</button>
+        <button *ngIf="!roles()" class="btn btn-primary" (click)="addToCart(product)">Add To Cart</button>
+        <button class="btn btn-secondary" (click)="view(product.id ?? product.productId)">View</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+<div class="text-center my-3" *ngIf="currentIndex < products.length">
+  <button (click)="loadMore()" class="btn btn-primary">عرض المزيد</button>
+</div>
+  <section class="why-us-section bg-white py-5">
+    <div class="container py-4">
+      <h2 class="display-5 fw-bold text-center text-dark mb-5">Why Choose My Shop</h2>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col">
+          <div class="reason-item text-center p-4 rounded-lg shadow-sm h-100">
+            <i class="fas fa-check-circle fs-1 text-primary mb-3"></i>
+            <h3 class="h4 text-dark mb-2">Unparalleled Quality</h3>
+            <p class="text-muted">We are committed to providing products of the highest quality for your satisfaction.
+            </p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="reason-item text-center p-4 rounded-lg shadow-sm h-100">
+            <i class="fas fa-shipping-fast fs-1 text-primary mb-3"></i>
+            <h3 class="h4 text-dark mb-2">Fast & Reliable Delivery</h3>
+            <p class="text-muted">We guarantee that your orders will arrive as soon as possible and in complete safety.
+            </p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="reason-item text-center p-4 rounded-lg shadow-sm h-100">
+            <i class="fas fa-shield-alt fs-1 text-primary mb-3"></i>
+            <h3 class="h4 text-dark mb-2">Warranty & Technical Support</h3>
+            <p class="text-muted">Our team is available to assist you at any time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,76 @@
+   <div class="fullScreen ">
+    <div class="signup-container">
+        <h2>SignUP</h2>
+        <form [formGroup]="signupForm" (ngSubmit)="onsubmit()">
+
+            <div class="input-group">
+                <label for="username">UserName</label>
+                <input [class.error]="isInvalid('userName')" [class.success]="isValid('userName')" formControlName="userName" type="text" id="username" name="username" placeholder="Please Enter Your UserName" required>
+            </div>
+            @if(userName.hasError("required") && userName.touched){
+              <small class="text-danger">This Field Required</small>
+            }
+            @if(userName.hasError("pattern")){
+              <small class="text-danger">This Felid must At Least 2 characters</small>
+            }
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input [class.error]="isInvalid('email')" [class.success]="isValid('email')" formControlName="email" type="email" id="email" name="email" placeholder="Please Enter Your Email" required>
+            </div>
+             @if(email.errors?.['required'] && email.touched){
+              <small class="text-danger">Email Required</small>
+             }
+             @if(email.hasError("pattern")){
+              <small class="text-danger">Email Pattern should be contain {{'(@ gmail|mail|outlook .com|org|net)'}}</small>
+             }
+            <div class="input-group password-toggle">
+                <label for="password">password</label>
+                <input [class.error]="isInvalid('password')" [class.success]="isValid('password')" formControlName="password" #passwordInput [type]="isEyeOpen()?'text':'password'" id="password" name="password" placeholder="Please Enter Your password" required>
+                <i
+                [class.fa-eye]="isEyeOpen()"
+                [class.fa-eye-slash]="!isEyeOpen()"
+                (click)="togglePasswordEye(passwordInput)"
+                  class="fa-duotone fa-light fa-eye toggle-password"></i>
+              </div>
+
+            <div class="input-group password-toggle">
+                <label for="confirm-password">Confirm Password</label>
+                <input [class.error]="isInvalid('confirmPassword')" [class.success]="isValid('confirmPassword')" formControlName="confirmPassword" #confirmPasswordField [type]="isConfirmPasswordEyeOpen()?'text':'password'" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+                <i
+               [class.fa-eye]="isConfirmPasswordEyeOpen()"
+                    [class.fa-eye-slash]="!isConfirmPasswordEyeOpen()"
+                    (click)="toggleConfirmPasswordEye(confirmPasswordField)"
+                    class="fa-duotone fa-light toggle-password"></i>
+              </div>
+               @if(signupForm.hasError('passwordMismatch') && signupForm.touched){
+              <small class="text-danger">Passwords do not match.</small>
+              }
+              @if(successMatch && !signupForm.hasError("passwordMismatch")){
+                 <small class="text-success">Passwords must match.</small>
+              }
+            <button  type="submit" [disabled]="signupForm.invalid">^SignUP^</button>
+        </form>
+
+        <div class="social-signup">
+           <a [routerLink]='["/login"]' class="social-button justify-content-center mb-3">
+            Login
+            </a>
+            <div class="social-buttons">
+                <a href="#" class="social-button">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28square%29.png/640px-Facebook_logo_%28square%29.png" alt="Facebook">
+                    Facebook
+                </a>
+                <a href="#" class="social-button">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png" alt="Google">
+                    Google
+                </a>
+            </div>
+        </div>
+
+        <div class="login-link">
+            Have Your Account <a [routerLink]='["/login"]'>Login</a>
+        </div>
+    </div>
+</div>
+
+

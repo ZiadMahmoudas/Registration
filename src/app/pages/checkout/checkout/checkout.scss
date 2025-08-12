@@ -1,0 +1,43 @@
+.custom-payment-option {
+  border-width: 2px;
+  transition: all 0.2s ease-in-out;
+}
+.custom-payment-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.custom-payment-option input[type="radio"]:checked + div {
+  background-color: var(--bs-primary);
+  color: white;
+}
+
+.checkout-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.checkout-container h2 {
+  color: #32325d;
+  margin-bottom: 10px;
+}
+
+.stripe-btn {
+  background-color: #6772e5;
+  color: white;
+  font-size: 16px;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.stripe-btn:hover {
+  background-color: #5469d4;
+}

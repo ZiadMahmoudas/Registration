@@ -1,0 +1,125 @@
+<div class="container my-5 pt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-7">
+      <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header bg-primary text-white text-center py-3 rounded-top">
+          <h4 class="mb-0">
+            <i class="fas fa-credit-card me-2"></i> Choose a Payment Method
+          </h4>
+        </div>
+        <div class="card-body p-4">
+          <div class="d-grid gap-3">
+
+<div id="paypal-button-container"></div>
+            <label for="standardOption" class="btn btn-outline-secondary btn-lg custom-payment-option">
+              <input type="radio" id="standardOption" name="paymentMethod" class="d-none" value="standard">
+              <div class="d-flex align-items-center justify-content-center" (click)="stand()">
+                <i class="fas fa-credit-card fa-2x me-3"></i>
+                <span class="fs-5 fw-bold">Standard Checkout</span>
+              </div>
+            </label>
+
+            <div id="container" class="d-flex align-items-center justify-content-center w-100"></div>
+
+<div class="checkout-container mt-3">
+  <h2>💳 Complete Your Purchase</h2>
+  <p>You're about to buy <strong>Awesome Product</strong></p>
+  <button class="stripe-btn" (click)="checkout()">
+    Pay with Stripe
+  </button>
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@if(selectedPaymentMethod){
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-9 col-lg-8">
+      <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header bg-primary text-white text-center py-4 rounded-top">
+          <h3 class="mb-0">
+            <i class="fas fa-user-plus me-2"></i> Register & Complete Payment
+          </h3>
+        </div>
+        <div class="card-body p-4">
+          <form>
+            <h5 class="fw-bold text-secondary mb-3">Account & Personal Details</h5>
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control form-control-lg" id="firstName" formControlName="firstName" placeholder="Enter your first name">
+              </div>
+              <div class="col-md-6">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control form-control-lg" id="lastName" formControlName="lastName" placeholder="Enter your last name">
+              </div>
+              <div class="col-12">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control form-control-lg" id="email" formControlName="email" placeholder="name@example.com">
+              </div>
+              <div class="col-md-6">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control form-control-lg" id="password" formControlName="password" placeholder="Enter a strong password">
+              </div>
+              <div class="col-md-6">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control form-control-lg" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm your password">
+              </div>
+            </div>
+
+            <h5 class="fw-bold text-secondary mb-3">Billing Address</h5>
+            <div class="row g-3 mb-4">
+              <div class="col-12">
+                <label for="address1" class="form-label">Address Line 1</label>
+                <input type="text" class="form-control form-control-lg" id="address1" formControlName="address1" placeholder="Apartment, building, or street name">
+              </div>
+              <div class="col-12">
+                <label for="address2" class="form-label">Address Line 2 (Optional)</label>
+                <input type="text" class="form-control form-control-lg" id="address2" formControlName="address2" placeholder="Floor, unit, or suite number">
+              </div>
+              <div class="col-md-6">
+                <label for="city" class="form-label">City</label>
+                <input type="text" class="form-control form-control-lg" id="city" formControlName="city" placeholder="City">
+              </div>
+              <div class="col-md-6">
+                <label for="zip" class="form-label">Zip / Postal Code</label>
+                <input type="text" class="form-control form-control-lg" id="zip" formControlName="zip" placeholder="12345">
+              </div>
+            </div>
+
+            <h5 class="fw-bold text-secondary mb-3">Payment Details</h5>
+            <div class="row g-3 mb-4">
+              <div class="col-12">
+                <label for="cardNumber" class="form-label">Card Number</label>
+                <input type="text" class="form-control form-control-lg" id="cardNumber" formControlName="cardNumber" placeholder="0000 0000 0000 0000">
+              </div>
+              <div class="col-md-6">
+                <label for="expiryDate" class="form-label">Expiration Date</label>
+                <input type="text" class="form-control form-control-lg" id="expiryDate" formControlName="expiryDate" placeholder="MM/YY">
+              </div>
+              <div class="col-md-6">
+                <label for="cvv" class="form-label">CVV</label>
+                <input type="text" class="form-control form-control-lg" id="cvv" formControlName="cvv" placeholder="123">
+              </div>
+              <div class="col-12">
+                <label for="cardName" class="form-label">Cardholder Name</label>
+                <input type="text" class="form-control form-control-lg" id="cardName" formControlName="cardName" placeholder="Full Name">
+              </div>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary btn-lg">
+                <i class="fas fa-check-circle me-2"></i> Complete Registration & Pay
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}

@@ -1,0 +1,14 @@
+{
+  "signup": "Sign Up",
+  "login": "Login",
+  "forgetPassword": "Forgot Password",
+  "passwordReset": "Reset Password",
+  "Confirm-Change-password": "Confirm Password Change",
+  "Home": "Home",
+  "VIEW_PRODUCT": "View Product",
+  "Dashboard": "Dashboard",
+  "users": "Users",
+  "Product": "Product",
+  "404": "Page Not Found",
+  "Edit Product":"Edit Product"
+}

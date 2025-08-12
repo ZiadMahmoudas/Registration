@@ -1,0 +1,61 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-lg border-0 rounded-lg">
+        <div class="card-header bg-warning text-dark text-center py-4 rounded-top">
+          <h3 class="mb-0">
+            <i class="fas fa-tags me-2"></i>
+                {{ isEdit ? 'Update Offer' : 'Create Offer' }}
+          </h3>
+        </div>
+        <div class="card-body p-4">
+          <form [formGroup]="offer" (ngSubmit)="submit()">
+            <div class="mb-3">
+              <label for="offerTitle" class="form-label fw-bold">Offer Title</label>
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                id="offerTitle"
+                formControlName="title"
+                placeholder="e.g., Summer Sale, 50% Off"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="discount" class="form-label fw-bold">Discount Percentage</label>
+              <div class="input-group">
+                <input
+                  type="number"
+                  class="form-control form-control-lg"
+                  id="discount"
+                  formControlName="discount"
+                  placeholder="e.g., 20"
+                  min="0"
+                  max="100"
+                />
+                <span class="input-group-text">%</span>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="endDate" class="form-label fw-bold">End Date</label>
+              <input
+                type="date"
+                class="form-control form-control-lg"
+                id="eventDate"
+                formControlName="endDate"
+              />
+            </div>
+
+            <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-warning btn-lg" [disabled]="offer.invalid">
+        <i class="fas fa-save me-2"></i>
+        {{ isEdit ? 'Update Offer' : 'Add Offer' }}
+      </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

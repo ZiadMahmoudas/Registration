@@ -1,0 +1,34 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-lg border-0 rounded-lg">
+        <div class="card-header bg-primary text-white text-center py-4 rounded-top">
+          <h3 class="mb-0">
+            <i class="fa-duotone fa-regular fa-person-shelter"></i>
+          </h3>
+        </div>
+        <div class="card-body p-4">
+          <form [formGroup]="AddStaff" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="username" class="form-label fw-bold">Staff Name</label>
+              <input formControlName="username" type="text" class="form-control form-control-lg" id="username" placeholder="Enter Staffname" required>
+            </div>
+            <div class="mb-3">
+              <label for="Password" class="form-label fw-bold">Password</label>
+              <input formControlName="passwordHash" type="text" class="form-control form-control-lg" id="Password"  placeholder="Enter Staff Password">
+            </div>
+              <div class="mb-3">
+                <label for="Email" class="form-label fw-bold">Email</label>
+                <input formControlName="email" type="email" class="form-control form-control-lg" id="Email" placeholder="Enter Name For Staff" step="0.01" required>
+              </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary btn-lg">
+                <i class="fas fa-plus-circle me-2"></i>Add
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
